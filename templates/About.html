@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    h4 {
+      color: #16a085;
+      margin-top: 20px;
+    }
+    p {
+      color: #555;
+      line-height: 1.6;
+    }
+    strong {
+      color: #2c3e50;
+    }
+    .contact {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #ddd;
+    }
+    .contact p {
+      margin: 5px 0;
+      color: #333;
+    }
+  </style>
+</head>
+{% load static %}
+<body>
+  <div class="container">
+    <h2>About</h2>
+    
+    <h4>About Me</h4>
+    <p>
+      Hello! My name is <strong>Usman</strong>, and I am passionate about technology and web development. 
+      I enjoy learning new skills and building useful projects that solve real-life problems. 
+      My goal is to improve my knowledge day by day and share it with others.
+    </p>
+    
+    <h4>About This Website</h4>
+    <p>
+      This website is designed to manage <strong>students’ data</strong> efficiently. 
+      It allows users to add, update, and view student details in a simple and secure way. 
+      The purpose of this project is to make record keeping easy and accessible for everyone.
+    </p>
+
+    <div class="contact">
+      <h4>Contact</h4>
+      <p><strong>Phone:</strong> +92 300 1234567</p>
+      <p><strong>Email:</strong> usman@example.com</p>
+    </div>
+  </div>
+</body>
+
+<!-- 
+<div class="card" style="width: 18rem;">
+   
+<!-- <img src="{% static 'accounts//myimg.jpg' %}" alt="My Photo" class="card-img-top"> 
+<img src="{% static 'myimg.jpg' %}" alt="My Photo" class="card-img-top">
+
+
+  <!-- <img src="myimg.jpg" class="card-img-top" alt="..."> 
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+  </div> -->
+  <div class="card" style="width: 18rem; margin: 20px auto;">
+  <img src="{% static 'myimg.jpg' %}" 
+       alt="My Photo" 
+       class="card-img-top"
+       style="max-width: 160px; height: auto; margin: 0 auto; display: block; border-radius: 10px;">
+  <div class="card-body">
+    <H1 class="card-text">
+    <i>MANI GUJJAR</i>
+    </H1S>
+  </div>
+</div>
+
+</div>
+</html>

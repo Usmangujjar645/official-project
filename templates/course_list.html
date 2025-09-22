@@ -1,0 +1,118 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4 title">📘 Courses</h2>
+
+  <div class="d-flex justify-content-between mb-3">
+    <a href="{% url 'course_add' %}" class="btn btn-gradient">+ Add Course</a>
+    <a href="{% url 'profile' %}" class="btn btn-secondary btn-anim">⬅ Back to Profile</a>
+  </div>
+
+  <div class="card shadow-lg border-0 rounded overflow-hidden">
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0 course-table text-center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for course in courses %}
+          <tr style="--delay: {{ forloop.counter0 }};">
+            <td>{{ course.id }}</td>
+            <td><strong>{{ course.name }}</strong></td>
+            <td>{{ course.description|default:"—" }}</td>
+            <td>
+              <a href="{% url 'course_delete' course.id %}" 
+                 class="btn btn-danger btn-anim"
+                 onclick="return confirm('Delete this course?');">Delete</a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="text-muted py-3">No courses available.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Gradient Background for Header */
+  /* .title {
+    font-weight: bold;
+    background: linear-gradient(90deg, #74ebd5, #9face6, #ff9a9e);
+    /* -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 0.8s ease;
+  } */
+.title {
+  font-weight: bold;
+  background: linear-gradient(90deg, #74ebd5, #9face6, #ff9a9e);
+  -webkit-background-clip: text;   /* Chrome/Safari */
+  -webkit-text-fill-color: transparent; /* Chrome/Safari */
+  background-clip: text;           /* Firefox (experimental) */
+  color: transparent;              /* Fallback */
+}
+
+  /* Table Header */
+  thead {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: #fff;
+  }
+
+  /* Table Rows Animation */
+  .course-table tbody tr {
+    opacity: 0;
+    animation: rowFade 0.6s ease forwards;
+    animation-delay: calc(var(--delay) * 0.15s);
+  }
+
+  .course-table tbody tr:hover {
+    background: linear-gradient(90deg, #fdfbfb, #ebedee);
+    transform: scale(1.01);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Gradient Buttons */
+  .btn-gradient {
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: #fff !important;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-gradient:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  }
+
+  /* Animated Buttons */
+  .btn-anim {
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-anim:hover {
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes rowFade {
+    from {opacity: 0; transform: translateX(-20px);}
+    to {opacity: 1; transform: translateX(0);}
+  }
+</style>
