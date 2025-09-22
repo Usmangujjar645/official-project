@@ -1,11 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Course</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9966, #ff5e62);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-<div class="container mt-4">
-  <h2>Add Course</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Save Course</button>
-    <a href="{% url 'course_list' %}" class="btn btn-secondary">Cancel</a>
-  </form>
-</div>
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 15px;
+      width: 400px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      color: #fff;
+    }
 
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    }
+
+    form p {
+      margin-bottom: 15px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      margin-top: 5px;
+    }
+
+    button, .btn-secondary {
+      display: inline-block;
+      padding: 10px 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background: #2575fc;
+    }
+
+    .btn-primary:hover {
+      background: #6a11cb;
+    }
+
+    .btn-secondary {
+      background: #666;
+      margin-left: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4">
+    <h2>Add Course</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Save Course</button>
+      <a href="{% url 'course_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>
