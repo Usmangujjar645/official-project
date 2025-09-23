@@ -53,18 +53,36 @@ def student_list(request):
     # print(sttud)
     return render(request, "student_list.html", {"students": students})
 
+# @login_required
+# def student_add(request):
+#     if request.method == "POST":
+#         form = StudentForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, "Student added.")
+#             return redirect("student_list")
+#     else:
+#         form = StudentForm()
+#     return render(request, "student_form.html", {"form": form})
+
+
+
 @login_required
 def student_add(request):
     if request.method == "POST":
         form = StudentForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, "Student added.")
-            return redirect("student_list")
+            roll = form.cleaned_data.get("roll")
+            # Check if roll already exists
+            if Student.objects.filter(roll=roll).exists():
+                messages.error(request, f"Roll number {roll} already exists!")
+            else:
+                form.save()
+                messages.success(request, "Student added successfully.")
+                return redirect("student_list")
     else:
         form = StudentForm()
     return render(request, "student_form.html", {"form": form})
-
 @login_required
 def student_delete(request, pk):
     student = get_object_or_404(Student, pk=pk)
