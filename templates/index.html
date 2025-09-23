@@ -125,12 +125,14 @@
 
       {% if user.is_authenticated %}
         <!-- Agar user login hai -->
-        <a href="{% url 'profile' %}" class="btn btn-custom btn-profile m-2">Profile</a>
+          <a href="{% url 'register' %}" class="btn btn-custom btn-register m-2">Register</a>
+        <!-- <a href="{% url 'profile' %}" class="btn btn-custom btn-profile m-2">Profile</a> -->
        <a href="{% url 'login' %}" class="btn btn-custom btn-login m-2">Login</a>
       {% else %}
         <!-- Agar user login nahi hai -->
         <!-- <a href="{% url 'login' %}" class="btn btn-custom btn-login m-2">Login</a> -->
         <a href="{% url 'register' %}" class="btn btn-custom btn-register m-2">Register</a>
+          <a href="{% url 'profile' %}" class="btn btn-custom btn-profile m-2">Profile</a>
       {% endif %}
 
     </div>
